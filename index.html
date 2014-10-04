@@ -8,21 +8,21 @@
 <body>
 	<div class="messages">
 		<h1>Let's play Rock Paper Scissors</h1>
-		<button class="ready">READY?</button>
+		<a class="action-button animate green ready">READY?</a>
 		<div class="game-message"></div>
 	</div>
 
 	<div class="game-board">
 		<div class="button-container">
-			<button id="rock" class="throw-button">ROCK</button>
-			<button id="paper" class="throw-button">PAPER</button>
-			<button id="scissors" class="throw-button">SCISSORS</button>
+			<a id="rock" class="throw-button action-button animate blue">ROCK</a>
+			<a id="paper" class="throw-button action-button animate yellow">PAPER</a>
+			<a id="scissors" class="throw-button action-button animate red">SCISSORS</a>
 		</div>
 	</div>
 
 	<div class="after-math">
 		<img src="" alt="result gif">
-		<button class="reset">Play Again?</button>
+		<a class="reset action-button animate green">Play Again?</a>
 	</div>	
 	
 	<script src="js/jquery-2.0.0.js"></script>
