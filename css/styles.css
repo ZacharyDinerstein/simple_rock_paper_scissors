@@ -43,6 +43,7 @@ button:hover {
 .reset {
 	width: 198px;
 	margin-top: 10px;
+	display: none;
 }
 
 

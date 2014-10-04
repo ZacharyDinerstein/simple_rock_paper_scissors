@@ -64,6 +64,7 @@ function showAfterMath(){
 	setResultImage();
 	setGameMessage();
 	$(".after-math").addClass("show");
+	fadeInElement(".reset", 1000, 800);
 }
 
 function setResultText(){
@@ -104,6 +105,10 @@ function setResultImage(){
 	}
 
 	$(".after-math img").attr("src", resultImgSrc);
+}
+
+function fadeInElement(elem, timeToWait, duration){	
+	$(elem).delay(timeToWait).fadeIn(duration);
 }
 
 function resetGame(){
