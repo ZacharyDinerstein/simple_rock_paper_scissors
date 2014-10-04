@@ -1,0 +1,74 @@
+body {
+	text-align: center;
+	font-family: sans-serif;
+	background-color: #FAFAFA;
+	color: #111;
+}
+
+h1 {
+	margin-bottom: 40px;
+}
+
+h2 {
+	margin-bottom: 25px;
+}
+
+button {
+	height: 35px;
+	width: 8%;
+	border-radius: 12px;
+	color: white;
+	background-color: rgb(146, 164, 192);
+	margin-right: 20px;
+	font-size: 20px;
+}
+
+button:last-of-type {
+	margin-right: 0px;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+
+
+/* Buttons */
+.ready {
+	height: 52px;
+	width: 16%;
+	font-size: 30px;
+}
+
+.reset {
+	width: 198px;
+	margin-top: 10px;
+}
+
+
+
+/* Game Sections */
+.game-board {
+	display: none;
+}
+
+.after-math {
+	display: none;
+}
+
+.after-math img {
+	width: 512px;
+	display: block;
+	margin: 0 auto 20px auto;
+}
+
+
+
+/* Injected Classes */
+.show {
+	display: inline;
+}
+
+.hide {
+	display: none;
+}
