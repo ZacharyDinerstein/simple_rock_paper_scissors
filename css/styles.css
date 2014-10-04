@@ -114,7 +114,7 @@ a:last-of-type {
 		display: block;
 		margin: 0 auto 15px auto;
 	}
-	button:last-of-type {
+	a:last-of-type {
 		margin-right: auto;
 	}
 }
