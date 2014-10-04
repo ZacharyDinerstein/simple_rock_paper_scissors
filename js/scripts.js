@@ -8,15 +8,15 @@ var resultImgSrc = "";
 
 //===== Event Listeners =====//
 $('.ready').click(function(){
-	var self = $(this);
-	hideClickedElement(self);
+	var self = this;
+	hideElement(self);
 	countDown();
 });
 
-$('.game-board button').click(function(){
+$('.throw-button').click(function(){
 	userThrow = this.id;
-	hideGameBoard();
-	computerThrow();
+	hideElement(".game-board");
+	setComputerThrow();
 	showAfterMath();
 });
 
@@ -27,12 +27,9 @@ $(".reset").click(function(){
 
 
 //===== Functions =====//
-function hideClickedElement(elem){
-	elem.addClass("hide");
-}
-
-function hideGameBoard(){
-	$('.game-board').addClass('hide');
+function hideElement(elem){
+	$(elem).addClass("hide")
+		.removeClass("show");
 }
 
 function countDown(){
@@ -40,14 +37,19 @@ function countDown(){
 	setTimeout(function(){gameMessage.html("<h2>two...</h2>")}, 400);
 	setTimeout(function(){gameMessage.html("<h2>three...</h2>")}, 800);
 	setTimeout(function(){gameMessage.html("<h2>SHOOT!</h2>")}, 1200);
-	setTimeout(function(){showGameBoard()}, 1200);	
+	setTimeout(function(){showElement(".game-board")}, 1200);	
 }
 
-function showGameBoard(){
-	$(".game-board").addClass("show");
+function showElement(elem){
+	$(elem).addClass("show")
+		.removeClass("hide");
 }
 
-function computerThrow(){
+function emptyElementContents(elem){
+	$(elem).html("");
+}
+
+function setComputerThrow(){
 	var randNum = Math.round(Math.random() * 3);
 
 	if (randNum == 0){
@@ -60,14 +62,14 @@ function computerThrow(){
 }
 
 function showAfterMath(){
-	setResultText();
+	setResultValue();
 	setResultImage();
 	setGameMessage();
-	$(".after-math").addClass("show");
-	fadeInElement(".reset", 1000, 800);
+	showElement(".after-math");
+	fadeInElement(".reset", 900, 500);
 }
 
-function setResultText(){
+function setResultValue(){
 	if (userThrow == compThrow){
 		result = "Tie!";
 	} else if (userThrow == "rock"){
@@ -91,10 +93,6 @@ function setResultText(){
 	}	 
 }
 
-function setGameMessage(){
-	gameMessage.html("<h2>You threw " + userThrow + "</h2><h2>Computer threw " + compThrow + "</h2><h1>" + result + "</h1>");
-}
-
 function setResultImage(){
 	if (result == "You Lose."){
 		resultImgSrc = "http://cdn.fansided.com/wp-content/blogs.dir/276/files/2014/02/RonBurgandy.gif";
@@ -107,10 +105,21 @@ function setResultImage(){
 	$(".after-math img").attr("src", resultImgSrc);
 }
 
+function setGameMessage(){
+	gameMessage.html("<h2>You threw " + userThrow + "</h2><h2>Computer threw " + compThrow + "</h2><h1>" + result + "</h1>");
+}
+
 function fadeInElement(elem, timeToWait, duration){	
 	$(elem).delay(timeToWait).fadeIn(duration);
 }
 
-function resetGame(){
+function fadeOutElement(elem, duration){	
+	$(elem).fadeOut(duration);
+}
 
+function resetGame(){
+	hideElement(".after-math");
+	fadeOutElement(".reset", 100);
+	emptyElementContents(".game-message");
+	countDown();
 }
